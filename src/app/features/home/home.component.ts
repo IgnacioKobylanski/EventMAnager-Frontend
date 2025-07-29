@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from '../events/models/Event';
 import { EventService } from '../events/services/event-service';
 import { CommonModule } from '@angular/common';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgbCarouselModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 

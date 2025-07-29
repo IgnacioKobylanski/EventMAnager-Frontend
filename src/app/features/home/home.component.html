@@ -1,9 +1,12 @@
-<div class="home-main-container" *ngFor="let event of events">
-    <h3>{{ event.name }}</h3>
-    <p>{{ event.description }}</p>
-    <p>{{ event.date }}</p>
-    <p>{{ event.location }}</p>
-</div>
+<ngb-carousel *ngIf="events.length > 0">
+  <ng-template ngbSlide *ngFor="let event of events">
+    <img [src]="event.imageUrl" alt="{{ event.name }}" class="d-block w-100" style="max-height: 400px; object-fit: cover;" />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>{{ event.name }}</h5>
+      <p>{{ event.date | date:'mediumDate' }} - {{ event.location }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
 
 <div *ngIf="errorMessage" class="error-message">
   <p>{{ errorMessage }}</p>
