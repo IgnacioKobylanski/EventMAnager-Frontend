@@ -1,3 +1,9 @@
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+}
+
 export interface Event {
   id: number;
   name: string;
@@ -6,5 +12,5 @@ export interface Event {
   location: string;
   imageUrl?: string;
   capacity?: number;
-  userId: number;
+  user: User;
 }
