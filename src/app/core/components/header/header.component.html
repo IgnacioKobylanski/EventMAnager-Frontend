@@ -1,1 +1,17 @@
-<p>header works!</p>
+<header class="header">
+  <div class="logo">
+    <a routerLink="/">EventosApp</a>
+  </div>
+
+  <nav class="nav-menu">
+    <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
+    <a routerLink="/misseventos" routerLinkActive="active">Mis Eventos</a>
+    <a routerLink="/crear" routerLinkActive="active">Crear Evento</a>
+    <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
+    <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+  </div>
+</header>
