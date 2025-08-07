@@ -6,6 +6,167 @@ header {
   background-color: var(--primary-color);
   color: var(--main-white);
   font-family: 'Poppins', sans-serif;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin: 0 1rem;
+      color: var(--main-white);
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+      }
+
+      &.active::after {
+        width: 100%;
+      }
+
+      &:hover {
+        color: var(--accent-color);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: var(--accent-color);
+      color: var(--main-white);
+      border: none;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 400;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: var(--accent-color-dark);
+        transform: translateY(-2px); 
+      }
+
+      &:active {
+        background-color: var(--primary-color-dark);
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--main-white);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-menu {
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      display: none;
+      padding: 1rem 0;
+      z-index: 9999;
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 0.5rem 1rem;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--main-white);
+  font-family: 'Poppins', sans-serif;
 
   .logo {
     display: flex;
@@ -62,32 +223,36 @@ header {
   }
 
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .header {
+
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
-
-    .nav-menu {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin: 1rem 0;
-
-      a {
-        margin: 0.5rem 0;
-      }
-    }
-
-    .auth-buttons {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      margin-bottom: 1rem;
-
-      button {
-        width: 100%;
-        padding: 0.8rem;
-      }
-    }
+    position: relative;
   }
-}
+
+  .nav-menu {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--main-white);
+  }
+ }
+} */

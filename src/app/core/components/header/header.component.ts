@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  isMenuOpen: boolean = false;
   isLoggedIn = false;
 
   login(){
@@ -16,5 +18,9 @@ export class HeaderComponent {
 
   logout(){
     this.isLoggedIn = false;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
