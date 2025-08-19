@@ -3,6 +3,6 @@
 
   <div class="overlay">
     <h3>{{ event.name }}</h3>
-    <span class="see-more">See more</span>
+    <a class="see-more" [routerLink]="['/event', event.id]">See more</a>
   </div>
 </div>

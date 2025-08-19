@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: var(--main-white);
     opacity: 0;
     transition: opacity 0.3s ease;
     text-align: center;
@@ -50,6 +50,7 @@
   .see-more {
     font-size: 0.9rem;
     text-decoration: underline;
+    color: var(--main-white);
   }
 }
 
