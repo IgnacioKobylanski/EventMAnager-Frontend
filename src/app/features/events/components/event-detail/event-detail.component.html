@@ -3,6 +3,34 @@
 
   <header class="event-header">
     <h1>{{ event.name }}</h1>
+    <p>{{ event.date | date:'fullDate' }} • {{ event.location }}</p>
+  </header>
+
+  <p class="event-description">
+    {{ event.description }}
+  </p>
+
+  <p class="event-meta">
+    🎟️ Capacity: {{ event.capacity || 'N/A' }} <br />
+    👤 Organizer: {{ event.user.username }}
+  </p>
+
+  <button class="primary-btn">✨ Register</button>
+  <button class="back-button" (click)="goBack()">⬅ Volver</button>
+</section>
+
+<ng-template #loadingOrError>
+  <p *ngIf="loading">Loading...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+</ng-template>
+
+
+
+<!-- <section class="event-detail" *ngIf="event; else loadingOrError">
+  <img [src]="event.imageUrl" alt="{{ event.name }}" class="event-image" />
+
+  <header class="event-header">
+    <h1>{{ event.name }}</h1>
     <p>{{ event.date | date:'fullDate' }} - {{ event.location }}</p>
   </header>
 
@@ -21,3 +49,4 @@
   <p *ngIf="loading">Loading...</p>
   <p *ngIf="error" class="error">{{ error }}</p>
 </ng-template>
+ -->

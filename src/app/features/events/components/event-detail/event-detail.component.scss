@@ -1,4 +1,129 @@
 .event-detail {
+  background: var(--main-white);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  animation: fadeInUp 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .event-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 400px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+  }
+
+  .event-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  color: #fff;
+
+  h1, p {
+    margin: 0;
+    color: inherit;
+  }
+}
+
+
+  .event-description {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 300;
+    line-height: 1.6;
+
+    &:first-letter {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  }
+
+  .event-meta {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .primary-btn {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  }
+
+  .back-button {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+  }
+}
+
+.error {
+  color: var(--error-color);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* .event-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,4 +199,4 @@
 .back-button {
   @extend button;
   margin-top: 1rem;
-}
+} */
