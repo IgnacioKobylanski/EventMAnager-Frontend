@@ -4,11 +4,12 @@ import { EventService } from '../events/services/event-service';
 import { CommonModule } from '@angular/common';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventListComponent } from '../events/components/event-list/event-list.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgbCarouselModule, EventListComponent],
+  imports: [CommonModule, NgbCarouselModule, EventListComponent, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
