@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div *ngIf="isOpen" class="overlay">
+  <div class="modal">
+    <button (click)="close()">Close</button>
+    <h2>Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="example@email.com">
+      </label>
+      <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+        Enter a valid email
+      </div>
+
+      <label>
+        Password
+        <input type="password" formControlName="password" placeholder="********">
+      </label>
+      <div class="error" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+        Password is required
+      </div>
+
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
