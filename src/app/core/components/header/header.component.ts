@@ -1,26 +1,45 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { LoginComponent } from '../../../features/auth/components/login/login.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive, LoginComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  isMenuOpen: boolean = false;
+  isMenuOpen = false;
   isLoggedIn = false;
+  isLoginOpen = false;
+  userName: string | null = null;
 
-  login(){
-    this.isLoggedIn = true;
-  }
+  constructor(private authService: AuthService) {
+    this.authService.isLoggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
 
-  logout(){
-    this.isLoggedIn = false;
+    this.authService.userName$.subscribe(name => {
+      this.userName = name;
+    });
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  openLogin() {
+    this.isLoginOpen = true;
+  }
+
+  closeLogin() {
+    this.isLoginOpen = false;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

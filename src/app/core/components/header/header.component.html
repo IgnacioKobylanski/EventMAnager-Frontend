@@ -1,23 +1,25 @@
 <header class="header">
-  <div class="logo">
-    <a routerLink="/">
-      <img src="assets/logo/mochi-logo-512x512.png" alt="EventosApp Logo" height="40">
-    </a>
-  </div>
+<div class="logo">
+<a routerLink="/">
+<img src="assets/logo/mochi-logo-512x512.png" alt="EventosApp Logo" height="40">
+</a>
+</div>
 
-  <button class="menu-toggle" (click)="toggleMenu()">
-    ☰
-  </button>
+<button class="menu-toggle" (click)="toggleMenu()">
+☰
+</button>
 
-  <nav class="nav-menu" [class.open]="isMenuOpen">
-    <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
-    <a routerLink="/misseventos" routerLinkActive="active">Mis Eventos</a>
-    <a routerLink="/crear" routerLinkActive="active">Crear Evento</a>
-    <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
-  </nav>
+<nav class="nav-menu" [class.open]="isMenuOpen">
+<a routerLink="/eventos" routerLinkActive="active">Eventos</a>
+<a routerLink="/misseventos" routerLinkActive="active">Mis Eventos</a>
+<a routerLink="/crear" routerLinkActive="active">Crear Evento</a>
+<a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+</nav>
 
-  <div class="auth-buttons">
-    <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
-    <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
-  </div>
+<div class="auth-buttons">
+<button *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
+<button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+</div>
 </header>
+
+<!-- <app-login *ngIf="isLoginOpen" (closeModal)="closeLogin()"></app-login> -->

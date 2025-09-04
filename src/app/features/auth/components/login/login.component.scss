@@ -1,3 +1,45 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+}
+
+.modal {
+  background: var(--main-white);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-out; 
+  z-index: 10000; 
+}
+
+.modal button:first-of-type {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal button:first-of-type:hover {
+  color: var(--accent-color);
+}
+
 .modal form {
   display: flex;
   flex-direction: column;
@@ -19,15 +61,36 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.modal form button {
+.modal form button[type="submit"] {
   align-self: flex-end;
   background-color: var(--primary-color);
   color: var(--main-white);
+  border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  font-weight: 400;
+  transition: background-color 0.3s ease;
 }
 
-.modal form button:hover {
+.modal form button[type="submit"]:hover {
   background-color: var(--primary-color-dark);
+}
+
+.error {
+  color: var(--error-color, red);
+  font-size: 0.8rem;
+  margin-top: -0.5rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

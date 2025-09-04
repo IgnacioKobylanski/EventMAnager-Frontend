@@ -86,12 +86,27 @@ header {
 
       &:hover {
         background-color: var(--accent-color-dark);
-        transform: translateY(-2px); 
+        transform: translateY(-2px);
       }
 
       &:active {
         background-color: var(--primary-color-dark);
         transform: translateY(0);
+      }
+    }
+
+    /* Nuevo estilo para el botón cuando el usuario está logueado */
+    button[data-logged-in='true'] {
+      background-color: transparent;
+      color: var(--main-white);
+      cursor: default;
+      font-weight: 600; /* Hace que el nombre de usuario sea más notable */
+      pointer-events: none; /* Desactiva el clic en el botón */
+      padding: 0;
+      
+      &:hover {
+        background-color: transparent;
+        transform: none;
       }
     }
   }
@@ -155,7 +170,6 @@ header {
     transform: translateY(0);
   }
 }
-
 
 
 
